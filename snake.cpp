@@ -25,3 +25,41 @@ void Snake::Draw()
         DrawRectangle(x * cellSize, y * cellSize, cellSize, cellSize, col);
     }
 }
+
+void Snake::setDir(Vector2 newDir)
+{
+    dir = newDir;
+}
+
+Vector2 Snake::getDir()
+{
+    return dir;
+}
+
+void Snake::Update(bool shouldUpdate, bool isMoving)
+{
+    if(shouldUpdate && isMoving)
+    {
+        body.pop_back();
+        body.push_front(Vector2Add(body[0], dir));
+    }
+
+}
+
+void Snake::EatsFruit()
+{
+    body.push_front(Vector2Add(body[0], dir));
+    std::cout << "Snake now is " << body.size() << " length" << std::endl;
+}
+
+
+std::deque<Vector2> Snake::getBody()
+{
+    return body;
+}
+
+void Snake::reset()
+{
+    body = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9}};
+    dir = {0,0};
+}
