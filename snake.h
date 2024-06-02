@@ -5,7 +5,7 @@
 class Snake
 {
 public:
-    Snake(int cellSize, int cellCount, Color snakeColor);
+    Snake(int cellSize, int cellCount, int offset, Color snakeColor);
     void Draw();
     void Update(bool shouldUpdate, bool isMoving);
     void EatsFruit();
@@ -18,6 +18,7 @@ public:
 private:
     int cellSize{};
     int cellCount{};
+    int offset{};
     Color snakeColor{};
     std::deque<Vector2> body = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9}};
     Vector2 dir{0,0};

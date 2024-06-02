@@ -4,14 +4,14 @@
 #include <deque>
 #include <iostream>
 
-Food::Food(int cellSize, int cellCount) : cellSize(cellSize), cellCount(cellCount)
+Food::Food(int cellSize, int cellCount, int offset) : cellSize(cellSize), cellCount(cellCount), offset(offset)
 {
     pos = GenerateRandomPos();
 }
 
 void Food::Draw()
 {
-    DrawRectangle(pos.x * cellSize, pos.y * cellSize, cellSize, cellSize, RED);
+    DrawRectangle(offset + pos.x * cellSize, offset + pos.y * cellSize, cellSize, cellSize, RED);
 }
 
 void Food::setPos(Vector2 newPos)

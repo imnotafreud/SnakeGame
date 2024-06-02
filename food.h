@@ -4,7 +4,7 @@
 class Food
 {
 public:
-    Food(int cellSize, int cellCount);
+    Food(int cellSize, int cellCount, int offset);
     void Draw();
     void setPos(Vector2 newPos);
     Vector2 getPos();
@@ -19,5 +19,6 @@ private:
     Vector2 pos{};
     int cellSize{};
     int cellCount{};
+    int offset{};
     float x{}, y{};
 };

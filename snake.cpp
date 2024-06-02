@@ -2,7 +2,7 @@
 #include "snake.h"
 #include "raymath.h"
 
-Snake::Snake(int cellSize, int cellCount, Color snakeColor) : cellSize(cellSize), cellCount(cellCount), snakeColor(snakeColor)
+Snake::Snake(int cellSize, int cellCount, int offset, Color snakeColor) : cellSize(cellSize), cellCount(cellCount), offset(offset),snakeColor(snakeColor)
 {
 }
 
@@ -22,7 +22,7 @@ void Snake::Draw()
             col = snakeColor;
         }
 
-        DrawRectangle(x * cellSize, y * cellSize, cellSize, cellSize, col);
+        DrawRectangle(offset + x * cellSize, offset + y * cellSize, cellSize, cellSize, col);
     }
 }
 
